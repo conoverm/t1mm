@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hackathon</title>
+	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.css">
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="node_modules/angular-material/angular-material.js"></script>
+	<script type="text/javascript" src="node_modules/angular-aria/angular-aria.js"></script>
+	<script type="text/javascript" src="node_modules/angular-animate/angular-animate.js"></script>
+	<script type="text/javascript" src="node_modules/angular-messages/angular-messages.js"></script>
+	
+	
+	<script type="text/javascript">
+	// var app = angular.module('hackathon', []);
+	var app = angular.module('hackathon', ['ngMaterial', 'ngMessages']);
+
+	app.controller('loginCtrl', function($scope){
+		$scope.user = "";
+	})
+	.config(function($mdThemingProvider) {
+  		$mdThemingProvider.theme('default')
+		// .primaryPalette('pink')
+		// .accentPalette('orange');
+	    .primaryPalette('light-blue', {
+	      'default': '400', // by default use shade 400 from the pink palette for primary intentions
+	      'hue-1': '100', // use shade 100 for the <code>md-hue-1</code> class
+	      'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+	      'hue-3': 'A100' // use shade A100 for the <code>md-hue-3</code> class
+	    })
+	    // If you specify less than all of the keys, it will inherit from the
+	    // default shades
+	    .accentPalette('purple', {
+	      'default': '200' // use shade 200 for default, and keep all other shades the same
+	    });
+	});
+	</script>
+	<script type="text/javascript">
+	// app
+	//   // .module('hackathon', ['ngMaterial', 'ngMessages'])
+	//   .controller('DemoCtrl', function($scope) {
+	//     $scope.user = {
+	//       title: 'Developer',
+	//       email: 'ipsum@lorem.com',
+	//       firstName: '',
+	//       lastName: '' ,
+	//       company: 'Google' ,
+	//       address: '1600 Amphitheatre Pkwy' ,
+	//       city: 'Mountain View' ,
+	//       state: 'CA' ,
+	//       biography: 'Loves kittens, snowboarding, and can type at 130 WPM.\n\nAnd rumor has it she bouldered up Castle Craig!',
+	//       postalCode : '94043'
+	//     };
+	//   })
+	//   .config( function($mdThemingProvider){
+	//     // Configure a dark theme with primary foreground yellow
+	//     $mdThemingProvider.theme('docs-dark', 'default')
+	//         .primaryPalette('yellow')
+	//         .dark();
+	//   });
+	</script>
+</head>
+
+<body data-ng-app="hackathon">
+	
+<md-toolbar>
+	<div class="md-toolbar-tools">
+		<md-button class="md-icon-button" aria-label="Settings">
+			<!-- http://google.github.io/material-design-icons/#getting-icons -->
+			<md-icon></md-icon>
+		</md-button>
+	<h2>
+		<span class="md-title">MediaMath</span>
+	</h2>
+	</div>
+</md-toolbar>
+
+<div data-ng-controller="loginCtrl" layout-margin layout-fill layout-padding>
+	<h3 layout-padding="md-padding" layout="row" class="md-title">login</h3>
+	<md-content layout="column">
+		<md-input-container flex md-no-float>
+			<input ng-model="mm.user" type="text" placeholder="username">
+		</md-input-container>
+		<md-input-container flex>
+			<input ng-model="mm.password" type="password" placeholder="password">
+		</md-input-container>
+		<input type="hidden">
+	</md-content>
+
+<md-content layout-padding>
+    Lorem ipsum dolor sit amet, ne quod novum mei.
+</md-content>
+<md-subheader>Online Friends</md-subheader>
+<!-- <md-grid-list md-cols-sm="2">
+  <md-grid-tile>
+  <md-grid-tile-header>
+    <h3>This is a header</h3>
+  </md-grid-tile-header>
+</md-grid-tile>
+<md-grid-tile>
+  <md-grid-tile-footer>
+    <h3>This is a footer</h3>
+  </md-grid-tile-footer>
+</md-grid-tile>
+</md-grid-list>
+ -->
+<md-checkbox ng-model="isChecked" aria-label="Finished?">
+  Finished ?
+</md-checkbox>
+<md-checkbox md-no-ink ng-model="hasInk" aria-label="No Ink Effects">
+  No Ink Effects
+</md-checkbox>
+<md-checkbox ng-disabled="true" ng-model="isDisabled" aria-label="Disabled">
+  Disabled
+</md-checkbox>
+
+</div>
+
+<!-- <div layout="column" class="inputdemoBasicUsage" data-ng-controller="DemoCtrl">
+
+  <md-content md-theme="docs-dark" layout-padding="" layout="row" layout-sm="column">
+    <md-input-container>
+      <label>Title</label>
+      <input ng-model="user.title">
+    </md-input-container>
+    <md-input-container>
+      <label>Email</label>
+      <input ng-model="user.email" type="email">
+    </md-input-container>
+  </md-content>
+
+  <md-content layout-padding="">
+    <form name="userForm">
+
+      <div layout="" layout-sm="column">
+        <md-input-container style="width:80%">
+            <label>Company (Disabled)</label>
+            <input ng-model="user.company" disabled="">
+          </md-input-container>
+
+        <md-input-container flex="">
+          <label>Submission Date</label>
+          <input type="date" ng-model="user.submissionDate">
+        </md-input-container>
+      </div>
+
+      <div layout="" layout-sm="column">
+        <md-input-container flex="">
+          <label>First name</label>
+          <input ng-model="user.firstName">
+        </md-input-container>
+        <md-input-container flex="">
+          <label>Last Name</label>
+          <input ng-model="theMax">
+        </md-input-container>
+      </div>
+
+      <md-input-container flex="">
+        <label>Address</label>
+        <input ng-model="user.address">
+      </md-input-container>
+      <md-input-container md-no-float="">
+        <input ng-model="user.address2" placeholder="Address 2">
+      </md-input-container>
+
+      <div layout="" layout-sm="column">
+        <md-input-container flex="">
+          <label>City</label>
+          <input ng-model="user.city">
+        </md-input-container>
+        <md-input-container flex="">
+          <label>State</label>
+          <input ng-model="user.state">
+        </md-input-container>
+        <md-input-container flex="">
+          <label>Postal Code</label>
+          <input ng-model="user.postalCode">
+        </md-input-container>
+      </div>
+
+      <md-input-container flex="">
+        <label>Biography</label>
+        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+      </md-input-container>
+
+
+    </form>
+  </md-content>
+  </div> -->
+</body>
+</html>
