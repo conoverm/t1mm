@@ -14,7 +14,13 @@
     "angular-aria": "^1.4.3",
     "angular-material": "^0.10.0",
     "angular-messages": "^1.4.3",
+    "angular-route": "^1.4.3",
+    "angular-ui-bootstrap": "^0.13.2",
     "angularjs": "0.0.1",
+    "bootstrap": "^3.3.5",
     "material-design-icons": "^2.0.0"
+  },
+  "devDependencies": {
+    "ng-describe": "^1.1.0"
   }
 }
