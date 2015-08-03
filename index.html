@@ -90,6 +90,12 @@
 	</div>
 	<div class="table-responsive">
 		<table class="table table-striped list-campaigns table-hover table-condensed">
+			<tr>
+				<th>Name</th>
+				<th>Start Date</th>
+				<th>End Date</th>
+				<th>Budget</th>
+			</tr>
 		<!-- actually want an accordion here... -->
 			<tr collapse="isCollapsed_{{$index}}" ng-repeat="campaign in campaigns track by $index">
 				<td>{{campaign.name}}</td>
