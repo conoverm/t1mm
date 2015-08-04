@@ -1,0 +1,158 @@
+/*jqmob.css*/
+
+h1 {
+  color: #fff;
+  text-shadow: none;
+  font-weight: 800;
+  text-align: center;
+}
+
+h4 {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: none;
+  margin-top: 1em;
+}
+
+input, placeholder {
+text-shadow: none;
+font-weight: 200;
+font-size: 1em;
+
+}
+
+li{
+  font-size: 1em;
+  margin-left: 20px;
+}
+
+.ui-header {
+  height: 40px;
+  padding-bottom: 0.5em;
+}
+
+/*.ui-btn {
+  margin-left: 1em;
+}
+*/
+.ui-content, ui-body {
+  margin-top:0em;
+}
+
+.ui-footer {
+  height: 1.7em;
+  padding-bottom: 0.8em;
+  padding-top: 0.8em;
+}
+
+.ui-footer, ui-bar-a {
+  height: 2.9em;
+  padding-bottom: 0.3em;
+  padding-top: 0.5em;
+}
+
+/**EDIT**/
+
+#btn-pause {
+font-size: 0.9em;
+font-weight: 700;
+text-shadow: none;
+border-color: #40587c;
+background-color: #CCCCCC;
+margin-left: 0.3em;
+padding-left: 3em;
+padding-right: 3em;
+}
+
+#btn-activate {
+font-size: 0.9em;
+font-weight: 700;
+color: #003C71;
+text-shadow: none;
+border-color: #40587c;
+background-color:#96D4F8;
+margin-right: 0.3em;
+padding-left: 3em;
+padding-right: 3em;
+}
+
+
+/**POPUP 1**/
+
+#pop-footer {
+  height: 1em;
+  padding-bottom: 0.8em;
+  padding-top: 0.8em;
+}
+
+#btn-cancel {
+font-size: 0.9em;
+font-weight: 700;
+text-shadow: none;
+text-decoration: line;
+border-color:;
+background-color:;
+padding-left: 3em;
+padding-right: 3em;
+}
+
+#btn-confirm {
+font-size: 0.9em;
+font-weight: 700;
+color: #003C71;
+text-shadow: none;
+border-color: #ccc;
+background-color:#96D4F8;
+padding-left: 3em;
+padding-right: 3em;
+}
+
+/**POPUP 2**/
+
+#btn-cancel2 {
+position: center;
+font-size: 0.8em;
+font-weight: 700;
+text-shadow: none;
+text-decoration: underline;
+margin-top: 0.4em;
+
+}
+
+#btn-confirm2 {
+font-size: 0.8em;
+font-weight: 700;
+color: #003C71;
+text-shadow: none;
+border-color: #ccc;
+background-color:#96D4F8;
+margin-top: 0.4em;
+}
+
+
+/**PAGE GRID**/
+
+#details .ui-collapsible-heading .ui-btn {
+  border-top-width: 1px !important; }
+}
+
+/**LOGIN**/
+#login {
+  background-color: #40587c;
+}
+
+.t1logo {
+  align-content: center;
+}
+
+.ui-input-search input {
+  border-style: none;
+  border-color: #cccccc;
+}
+
+.ui-btn signin {
+  background-color: #40587c;
+}
+

@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>T1 Mobile</title>
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-	
+
 	<style>
 	/*http://angular-ui.github.io/bootstrap/*/
 	.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
@@ -37,7 +37,7 @@
 				end_date: '11112021T00:00:00',
 				budget: '333.33'
 			}];
-	
+
 	</script>
 	<script type="text/javascript">
 	(function(window, angular, undefined) {'use strict';
@@ -73,6 +73,7 @@
 
 	</script>
 </head>
+<!-- http://codepen.io/chungster/pen/92aa52bc4ec71f41738fb3c63e97da81 -->
 <!-- <div data-ng-controller="loginCtrl" class="loginctrl">{{ response }}</div> -->
 <body ng-app="hackathon" data-ng-controller="listCampaigns">
 	<nav class="navbar navbar-default navbar-inverse">
@@ -88,8 +89,8 @@
 	<button class="btn btn-default" ng-click="isCollapsed_0 = !isCollapsed_0">Toggle collapse</button>
 	<hr>
 	</div>
-	<div class="table-responsive">
-		<table class="table table-striped list-campaigns table-hover table-condensed">
+	<div class="table-responsive col-lg-6">
+		<table class=" table table-striped list-campaigns table-hover table-condensed">
 			<tr>
 				<th>Name</th>
 				<th>Start Date</th>
