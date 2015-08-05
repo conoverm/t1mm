@@ -14,6 +14,7 @@
 
   <script type="text/javascript">
   window.mm = {};
+  $.support.cors = true;
 
   $( window ).on( "navigate", function( event, data ) {
     console.log( event );
@@ -76,9 +77,34 @@
         var totalBudget = $val.find('prop[name=total_budget]').attr('value');
         var version = $val.attr('version');
         var status = $val.find('prop[name=status]').attr('value');
+        var hourly; var daily;
+
+
+      $.ajax({
+        method: 'GET',
+        url: "http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id="+campaignId+"&type=hourly",
+        xhrFields: {
+          withCredentials: true
+        }
+        })
+        // $.get("http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id="+campaignId+"&type=hourly")
+        .done(function(response){
+          hourly = response;
+        })
+        .always(function(){
+          $('.mm-totalHourlySpent').html('$'+hourly);
+        })
+
+        // $.get("http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id="+campaignId+"&type=daily")
+        // .done(function(response){
+        //   daily = response;
+        // })
+        // .always(function(){
+        //    $('.mm-totalDailySpent').html('$'+daily);
+        // })
+
 
         $template.clone().removeClass('mm-template hidden')
-
         .data('campaign-id', campaignId)
         .appendTo('#collapsiblesetForFilter')
         .attr('data-filtertext', campaignName)
@@ -264,7 +290,8 @@
   <h5>
     <div class="col-xs-3 mm-campaignId">Lorem ipsum</div>
     <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
-    <div class="col-xs-4 mm-totalBudget right">0.00</div>
+    <div class="col-xs-1 mm-totalHourlySpent">0.00</div>
+    <div class="col-xs-1 mm-totalDailySpent">0.00</div>
     </h5>
     <div data-role="listview" data-inset="false">
       <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
