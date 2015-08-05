@@ -2,26 +2,15 @@
   "name": "hackathon",
   "version": "1.0.0",
   "description": "mobile app for hackathon",
-  "main": "index.js",
+  "main": "jqmob.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.4.3",
-    "angular-animate": "^1.4.3",
-    "angular-aria": "^1.4.3",
-    "angular-material": "^0.10.0",
-    "angular-messages": "^1.4.3",
-    "angular-route": "^1.4.3",
-    "angular-ui-bootstrap": "^0.13.2",
-    "angularjs": "0.0.1",
-    "bootstrap": "^3.3.5",
-    "jquery.cookie": "^1.4.1",
-    "material-design-icons": "^2.0.0"
+    "jquery.cookie": "^1.4.1"
   },
   "devDependencies": {
-    "ng-describe": "^1.1.0"
   }
 }

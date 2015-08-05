@@ -1,0 +1,771 @@
+<?xml version='1.0' ?>
+<result called_on="2015-08-05 16:19:52.402304+00">
+  <entities count="2174" start="0">
+    <entity name="Campaigns 206338" id="206338" type="campaign" version="6">
+      <entity name="Budget Flights #122991" id="122991" rel="budget_flights" type="budget_flight" version="3">
+        <prop name="campaign_id" value="206338" />
+        <prop name="start_date" value="2015-07-27T21:15:00">
+          <local_time value="2015-07-27T17:15:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-09-01T03:59:00">
+          <local_time value="2015-08-31T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="100000.00">
+          <amount currency_code="USD" value="100000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-27T20:59:27">
+          <local_time value="2015-07-27T16:59:27" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-27T21:05:15">
+          <local_time value="2015-07-27T17:05:15" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="135090" />
+      <prop name="status" value="0" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 206338" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="2" />
+      <prop name="ad_server_username" value="Ad Server User 206338" />
+      <prop name="ad_server_password" value="secret 206338" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-27T21:15:00">
+        <local_time value="2015-07-27T17:15:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-09-01T03:59:00">
+        <local_time value="2015-08-31T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="791246" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="43200" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-27T20:59:27">
+        <local_time value="2015-07-27T16:59:27" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-27T21:05:14">
+        <local_time value="2015-07-27T17:05:14" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="100000.00">
+        <amount currency_code="USD" value="100000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="10.0000">
+        <amount currency_code="USD" value="10.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="asap" />
+      <prop name="frequency_interval" value="day" />
+      <prop name="frequency_amount" value="10" />
+      <prop name="use_mm_freq" value="0" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="0" />
+      <prop name="spend_cap_automatic" value="1" />
+      <prop name="minimize_multi_ads" value="0" />
+      <prop name="initial_start_date" value="2015-07-27T21:15:00">
+        <local_time value="2015-07-27T17:15:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 206330" id="206330" type="campaign" version="2">
+      <entity name="Budget Flights #122982" id="122982" rel="budget_flights" type="budget_flight" version="1">
+        <prop name="campaign_id" value="206330" />
+        <prop name="start_date" value="2015-07-27T21:00:00">
+          <local_time value="2015-07-27T17:00:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-09-01T03:59:00">
+          <local_time value="2015-08-31T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="100000.00">
+          <amount currency_code="USD" value="100000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-27T20:30:59">
+          <local_time value="2015-07-27T16:30:59" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-27T20:47:17">
+          <local_time value="2015-07-27T16:47:17" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="135090" />
+      <prop name="status" value="1" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 206330" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="2" />
+      <prop name="ad_server_username" value="Ad Server User 206330" />
+      <prop name="ad_server_password" value="secret 206330" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-27T21:00:00">
+        <local_time value="2015-07-27T17:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-09-01T03:59:00">
+        <local_time value="2015-08-31T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="791243" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="43200" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-27T20:30:59">
+        <local_time value="2015-07-27T16:30:59" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-27T20:47:17">
+        <local_time value="2015-07-27T16:47:17" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="100000.00">
+        <amount currency_code="USD" value="100000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="10.0000">
+        <amount currency_code="USD" value="10.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="asap" />
+      <prop name="frequency_interval" value="day" />
+      <prop name="frequency_amount" value="10" />
+      <prop name="use_mm_freq" value="0" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="0" />
+      <prop name="spend_cap_automatic" value="1" />
+      <prop name="minimize_multi_ads" value="0" />
+      <prop name="initial_start_date" value="2015-07-27T21:00:00">
+        <local_time value="2015-07-27T17:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 206111" id="206111" type="campaign" version="3">
+      <entity name="Budget Flights #122721" id="122721" rel="budget_flights" type="budget_flight" version="1">
+        <prop name="campaign_id" value="206111" />
+        <prop name="start_date" value="2015-07-24T21:05:00">
+          <local_time value="2015-07-24T17:05:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-10-01T03:59:00">
+          <local_time value="2015-09-30T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="1000000.00">
+          <amount currency_code="USD" value="1000000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-24T20:35:00">
+          <local_time value="2015-07-24T16:35:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-24T20:54:24">
+          <local_time value="2015-07-24T16:54:24" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="142679" />
+      <prop name="status" value="1" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 206111" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="2" />
+      <prop name="ad_server_username" value="Ad Server User 206111" />
+      <prop name="ad_server_password" value="secret 206111" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-24T21:05:00">
+        <local_time value="2015-07-24T17:05:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-10-01T03:59:00">
+        <local_time value="2015-09-30T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="777099" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="20160" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-24T20:35:00">
+        <local_time value="2015-07-24T16:35:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-24T20:57:59">
+        <local_time value="2015-07-24T16:57:59" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="1000000.00">
+        <amount currency_code="USD" value="1000000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="25.0000">
+        <amount currency_code="USD" value="25.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="asap" />
+      <prop name="frequency_interval" value="day" />
+      <prop name="frequency_amount" value="60" />
+      <prop name="use_mm_freq" value="0" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="0" />
+      <prop name="spend_cap_automatic" value="1" />
+      <prop name="minimize_multi_ads" value="1" />
+      <prop name="initial_start_date" value="2015-07-24T21:05:00">
+        <local_time value="2015-07-24T17:05:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 206065" id="206065" type="campaign" version="1">
+      <entity name="Budget Flights #122673" id="122673" rel="budget_flights" type="budget_flight" version="0">
+        <prop name="campaign_id" value="206065" />
+        <prop name="start_date" value="2015-07-24T17:15:00">
+          <local_time value="2015-07-24T13:15:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-09-14T03:59:00">
+          <local_time value="2015-09-13T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="40000.00">
+          <amount currency_code="USD" value="40000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-24T16:56:49">
+          <local_time value="2015-07-24T12:56:49" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-24T16:56:49">
+          <local_time value="2015-07-24T12:56:49" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="128901" />
+      <prop name="status" value="1" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 206065" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="6" />
+      <prop name="ad_server_username" value="Ad Server User 206065" />
+      <prop name="ad_server_password" value="secret 206065" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-24T17:15:00">
+        <local_time value="2015-07-24T13:15:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-09-14T03:59:00">
+        <local_time value="2015-09-13T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="599530" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="43200" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-24T16:56:49">
+        <local_time value="2015-07-24T12:56:49" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-24T19:47:00">
+        <local_time value="2015-07-24T15:47:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="40000.00">
+        <amount currency_code="USD" value="40000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="4.0000">
+        <amount currency_code="USD" value="4.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="no-limit" />
+      <prop name="frequency_interval" value="not-applicable" />
+      <prop name="use_mm_freq" value="1" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="0" />
+      <prop name="spend_cap_automatic" value="1" />
+      <prop name="minimize_multi_ads" value="0" />
+      <prop name="initial_start_date" value="2015-07-24T17:15:00">
+        <local_time value="2015-07-24T13:15:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 206031" id="206031" type="campaign" version="1">
+      <entity name="Budget Flights #122633" id="122633" rel="budget_flights" type="budget_flight" version="0">
+        <prop name="campaign_id" value="206031" />
+        <prop name="start_date" value="2015-07-24T15:00:00">
+          <local_time value="2015-07-24T11:00:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-08-24T03:59:00">
+          <local_time value="2015-08-23T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="1000000.00">
+          <amount currency_code="USD" value="1000000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-24T14:31:12">
+          <local_time value="2015-07-24T10:31:12" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-24T14:31:12">
+          <local_time value="2015-07-24T10:31:12" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="140161" />
+      <prop name="status" value="1" />
+      <prop name="name" value="Campaigns 206031" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="2" />
+      <prop name="ad_server_username" value="Ad Server User 206031" />
+      <prop name="ad_server_password" value="secret 206031" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-24T15:00:00">
+        <local_time value="2015-07-24T11:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-08-24T03:59:00">
+        <local_time value="2015-08-23T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="800197" />
+      <prop name="pc_window_minutes" value="20160" />
+      <prop name="pv_window_minutes" value="43200" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-24T14:31:12">
+        <local_time value="2015-07-24T10:31:12" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-27T20:52:29">
+        <local_time value="2015-07-27T16:52:29" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="1000000.00">
+        <amount currency_code="USD" value="1000000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="1.0000">
+        <amount currency_code="USD" value="1.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="no-limit" />
+      <prop name="frequency_interval" value="not-applicable" />
+      <prop name="use_mm_freq" value="1" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="0" />
+      <prop name="spend_cap_automatic" value="1" />
+      <prop name="minimize_multi_ads" value="1" />
+      <prop name="initial_start_date" value="2015-07-24T15:00:00">
+        <local_time value="2015-07-24T11:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 205961" id="205961" type="campaign" version="3">
+      <entity name="Budget Flights #122544" id="122544" rel="budget_flights" type="budget_flight" version="2">
+        <prop name="campaign_id" value="205961" />
+        <prop name="start_date" value="2015-07-24T18:35:00">
+          <local_time value="2015-07-24T14:35:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-08-23T03:59:00">
+          <local_time value="2015-08-22T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="2000000.00">
+          <amount currency_code="USD" value="2000000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-23T23:18:46">
+          <local_time value="2015-07-23T19:18:46" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-23T23:19:12">
+          <local_time value="2015-07-23T19:19:12" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="121325" />
+      <prop name="status" value="1" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 205961" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="2" />
+      <prop name="ad_server_username" value="Ad Server User 205961" />
+      <prop name="ad_server_password" value="secret 205961" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-24T18:35:00">
+        <local_time value="2015-07-24T14:35:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-08-23T03:59:00">
+        <local_time value="2015-08-22T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="434907" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="20160" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-23T23:18:46">
+        <local_time value="2015-07-23T19:18:46" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-24T18:19:46">
+        <local_time value="2015-07-24T14:19:46" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="2000000.00">
+        <amount currency_code="USD" value="2000000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="6.0000">
+        <amount currency_code="USD" value="6.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="even" />
+      <prop name="frequency_interval" value="day" />
+      <prop name="frequency_amount" value="120" />
+      <prop name="use_mm_freq" value="0" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="0" />
+      <prop name="spend_cap_automatic" value="1" />
+      <prop name="spend_cap_amount" currency_code="USD" value="1570.00">
+        <amount currency_code="USD" value="1570.00" />
+      </prop>
+      <prop name="minimize_multi_ads" value="0" />
+      <prop name="initial_start_date" value="2015-07-24T18:35:00">
+        <local_time value="2015-07-24T14:35:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 205956" id="205956" type="campaign" version="5">
+      <entity name="Budget Flights #122539" id="122539" rel="budget_flights" type="budget_flight" version="2">
+        <prop name="campaign_id" value="205956" />
+        <prop name="start_date" value="2015-07-24T16:00:00">
+          <local_time value="2015-07-24T12:00:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-09-03T15:59:00">
+          <local_time value="2015-09-03T11:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="500000.00">
+          <amount currency_code="USD" value="500000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-23T22:31:31">
+          <local_time value="2015-07-23T18:31:31" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-27T21:22:45">
+          <local_time value="2015-07-27T17:22:45" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="108737" />
+      <prop name="status" value="1" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 205956" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="9" />
+      <prop name="ad_server_username" value="Ad Server User 205956" />
+      <prop name="ad_server_password" value="secret 205956" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-24T16:00:00">
+        <local_time value="2015-07-24T12:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-09-03T15:59:00">
+        <local_time value="2015-09-03T11:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="782281" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="43200" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-23T22:31:31">
+        <local_time value="2015-07-23T18:31:31" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-27T21:22:44">
+        <local_time value="2015-07-27T17:22:44" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="500000.00">
+        <amount currency_code="USD" value="500000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="10.0000">
+        <amount currency_code="USD" value="10.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="no-limit" />
+      <prop name="frequency_interval" value="not-applicable" />
+      <prop name="use_mm_freq" value="1" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="1" />
+      <prop name="spend_cap_automatic" value="0" />
+      <prop name="spend_cap_amount" currency_code="USD" value="1500.00">
+        <amount currency_code="USD" value="1500.00" />
+      </prop>
+      <prop name="minimize_multi_ads" value="0" />
+      <prop name="initial_start_date" value="2015-07-24T16:00:00">
+        <local_time value="2015-07-24T12:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 205894" id="205894" type="campaign" version="2">
+      <entity name="Budget Flights #122453" id="122453" rel="budget_flights" type="budget_flight" version="1">
+        <prop name="campaign_id" value="205894" />
+        <prop name="start_date" value="2015-07-23T18:00:00">
+          <local_time value="2015-07-23T14:00:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-08-23T03:59:00">
+          <local_time value="2015-08-22T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="9000000.00">
+          <amount currency_code="USD" value="9000000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-23T17:45:54">
+          <local_time value="2015-07-23T13:45:54" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-23T17:50:45">
+          <local_time value="2015-07-23T13:50:45" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="136746" />
+      <prop name="status" value="1" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 205894" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="6" />
+      <prop name="ad_server_username" value="Ad Server User 205894" />
+      <prop name="ad_server_password" value="secret 205894" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-23T18:00:00">
+        <local_time value="2015-07-23T14:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-08-23T03:59:00">
+        <local_time value="2015-08-22T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="745334" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="10080" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-23T17:45:54">
+        <local_time value="2015-07-23T13:45:54" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-23T17:50:44">
+        <local_time value="2015-07-23T13:50:44" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="9000000.00">
+        <amount currency_code="USD" value="9000000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="50.0000">
+        <amount currency_code="USD" value="50.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="no-limit" />
+      <prop name="frequency_interval" value="not-applicable" />
+      <prop name="use_mm_freq" value="1" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="1" />
+      <prop name="spend_cap_automatic" value="0" />
+      <prop name="spend_cap_amount" currency_code="USD" value="890.00">
+        <amount currency_code="USD" value="890.00" />
+      </prop>
+      <prop name="minimize_multi_ads" value="0" />
+      <prop name="initial_start_date" value="2015-07-23T18:00:00">
+        <local_time value="2015-07-23T14:00:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 205782" id="205782" type="campaign" version="0">
+      <entity name="Budget Flights #122325" id="122325" rel="budget_flights" type="budget_flight" version="0">
+        <prop name="campaign_id" value="205782" />
+        <prop name="start_date" value="2015-07-23T00:15:00">
+          <local_time value="2015-07-22T20:15:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-08-02T03:59:00">
+          <local_time value="2015-08-01T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="9000000.00">
+          <amount currency_code="USD" value="9000000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-22T23:52:38">
+          <local_time value="2015-07-22T19:52:38" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-22T23:52:38">
+          <local_time value="2015-07-22T19:52:38" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="136746" />
+      <prop name="status" value="1" />
+      <prop name="name" value="Campaigns 205782" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="6" />
+      <prop name="ad_server_username" value="Ad Server User 205782" />
+      <prop name="ad_server_password" value="secret 205782" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-23T00:15:00">
+        <local_time value="2015-07-22T20:15:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-08-02T03:59:00">
+        <local_time value="2015-08-01T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="745334" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="10080" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-22T23:52:38">
+        <local_time value="2015-07-22T19:52:38" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-22T23:52:38">
+        <local_time value="2015-07-22T19:52:38" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="9000000.00">
+        <amount currency_code="USD" value="9000000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="50.0000">
+        <amount currency_code="USD" value="50.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="no-limit" />
+      <prop name="frequency_interval" value="not-applicable" />
+      <prop name="use_mm_freq" value="1" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="1" />
+      <prop name="spend_cap_automatic" value="0" />
+      <prop name="spend_cap_amount" currency_code="USD" value="890.00">
+        <amount currency_code="USD" value="890.00" />
+      </prop>
+      <prop name="minimize_multi_ads" value="1" />
+      <prop name="initial_start_date" value="2015-07-23T00:15:00">
+        <local_time value="2015-07-22T20:15:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+    <entity name="Campaigns 205425" id="205425" type="campaign" version="6">
+      <entity name="Budget Flights #121918" id="121918" rel="budget_flights" type="budget_flight" version="3">
+        <prop name="campaign_id" value="205425" />
+        <prop name="start_date" value="2015-07-20T22:30:00">
+          <local_time value="2015-07-20T18:30:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="end_date" value="2015-08-01T03:59:00">
+          <local_time value="2015-07-31T23:59:00" zone_name="America/New_York" />
+        </prop>
+        <prop name="total_budget" currency_code="USD" value="50000.00">
+          <amount currency_code="USD" value="50000.00" />
+        </prop>
+        <prop name="is_relevant" value="1" />
+        <prop name="created_on" value="2015-07-20T21:58:20">
+          <local_time value="2015-07-20T17:58:20" zone_name="America/New_York" />
+        </prop>
+        <prop name="updated_on" value="2015-07-21T22:14:39">
+          <local_time value="2015-07-21T18:14:39" zone_name="America/New_York" />
+        </prop>
+        <prop name="zone_name" value="America/New_York" />
+        <prop name="currency_code" value="USD" />
+      </entity>
+      <prop name="advertiser_id" value="123540" />
+      <prop name="status" value="0" />
+      <prop name="io_name" value="" />
+      <prop name="io_reference_num" value="" />
+      <prop name="name" value="Campaigns 205425" />
+      <prop name="agency_fee_pct" value="0.00" />
+      <prop name="ad_server_id" value="9" />
+      <prop name="ad_server_username" value="Ad Server User 205425" />
+      <prop name="ad_server_password" value="secret 205425" />
+      <prop name="use_default_ad_server" value="0" />
+      <prop name="start_date" value="2015-07-20T22:30:00">
+        <local_time value="2015-07-20T18:30:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="end_date" value="2015-08-01T03:59:00">
+        <local_time value="2015-07-31T23:59:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="margin_pct" value="0.0000" />
+      <prop name="goal_type" value="cpa" />
+      <prop name="merit_pixel_id" value="763233" />
+      <prop name="pc_window_minutes" value="43200" />
+      <prop name="pv_window_minutes" value="43200" />
+      <prop name="pv_pct" value="100.00" />
+      <prop name="conversion_type" value="variable" />
+      <prop name="conversion_variable_minutes" value="1" />
+      <prop name="created_on" value="2015-07-20T21:58:19">
+        <local_time value="2015-07-20T17:58:19" zone_name="America/New_York" />
+      </prop>
+      <prop name="updated_on" value="2015-07-27T18:05:04">
+        <local_time value="2015-07-27T14:05:04" zone_name="America/New_York" />
+      </prop>
+      <prop name="total_budget" currency_code="USD" value="50000.00">
+        <amount currency_code="USD" value="50000.00" />
+      </prop>
+      <prop name="goal_value" currency_code="USD" value="500.0000">
+        <amount currency_code="USD" value="500.0000" />
+      </prop>
+      <prop name="service_type" value="MANAGED" />
+      <prop name="frequency_type" value="no-limit" />
+      <prop name="frequency_interval" value="not-applicable" />
+      <prop name="use_mm_freq" value="1" />
+      <prop name="zone_name" value="America/New_York" />
+      <prop name="currency_code" value="USD" />
+      <prop name="has_custom_attribution" value="0" />
+      <prop name="spend_cap_enabled" value="1" />
+      <prop name="spend_cap_automatic" value="0" />
+      <prop name="spend_cap_amount" currency_code="USD" value="500.00">
+        <amount currency_code="USD" value="500.00" />
+      </prop>
+      <prop name="minimize_multi_ads" value="0" />
+      <prop name="initial_start_date" value="2015-07-20T22:30:00">
+        <local_time value="2015-07-20T18:30:00" zone_name="America/New_York" />
+      </prop>
+      <prop name="dcs_data_is_campaign_level" value="0" />
+      <prop name="override_suspicious_traffic_filter" value="0" />
+      <prop name="suspicious_traffic_filter_level" value="25" />
+    </entity>
+  </entities>
+  <status code="ok" />
+</result>
