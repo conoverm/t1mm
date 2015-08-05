@@ -73,10 +73,13 @@
       $.each($campaigns, function(index, value){
 
         var $val = $(value);
+        console.log($val);
         var campaignName = $val.attr('name');
         var campaignId = $val.attr('id');
+        var version = $val.attr('version');
 
         var totalBudget = $val.find('prop[name=total_budget]').attr('value');
+        var status = $val.find('prop[name=status]').attr('value');
         console.info('campaignName', campaignName);
 
 console.info('campaignId', campaignId);
@@ -85,12 +88,15 @@ console.info('totalBudget', totalBudget);
         $template.clone().removeClass('mm-template hidden').data('campaign-id', campaignId)
         .appendTo('#collapsiblesetForFilter')
         .attr('data-filtertext', campaignName)
+        .attr('data-mm-status', status)
+        .attr('data-mm-version', version)
         .find('.mm-campaignName').html(campaignName).end()
         .find('.mm-campaignId').html(campaignId).end()
-        .find('.mm-totalBudget').html(totalBudget).end();
+        .find('.mm-totalBudget').html(totalBudget).end()
+        .collapsible();
 
 
-      })
+      });
 
 
     }
@@ -143,7 +149,37 @@ console.info('totalBudget', totalBudget);
     mm.login();
 
   })
+  $(function(){
+    $(document).on('click', '#startStopCampaign', function(e) {
+      e.preventDefault();
+      $listItem = $(this).closest('.campaignItem');
+      var campaignID = $listItem.attr('data-id');
+      var version = parseInt($listItem.attr('data-mm-version'));
+      var status = parseInt($listItem.attr('data-mm-status'));
 
+      console.log('yooooo' + campaignID);
+      $.ajax({
+        method: 'POST',
+        url: 'https://t1qa2.mediamath.com/api/v2.0/campaigns/' + campaignID + '?currentTime=' + Date.now(),
+        data: {
+          version: version,
+          status: !status
+        },
+        xhrFields: {
+          withCredentials: true
+        },
+        success: function(res) {
+          console.log(res);
+          $listItem.toggleClass('inactive');
+        },
+        error: function(res) {
+          console.log(res);
+          alert(res.statusText);
+        }
+      });
+
+    });
+  });
   </script>
 
   <style>
@@ -253,7 +289,7 @@ console.info('totalBudget', totalBudget);
 <div class="row">
 
 <div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-  <div class="mm-template hidden" data-role="collapsible" data-filtertext="Advertiser 1">
+  <div class="mm-template hidden" data-filtertext="Advertiser 1">
   <h3>
     <div class="col-xs-4 mm-campaignId">Lorem ipsum</div>
     <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
@@ -261,7 +297,7 @@ console.info('totalBudget', totalBudget);
     </h3>
     <div data-role="listview" data-inset="false">
       <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
-      <div>PAUSE</div>
+      <div><a id="startStopCampaign" href="#">Deactivate</div>
     </div>
   </div>
 </div>
