@@ -15,6 +15,16 @@
   <script type="text/javascript">
   window.mm = {};
 
+
+  $( window ).on( "navigate", function( event, data ) {
+    console.log( event );
+    console.log( data );
+    console.log( data.state.info );
+    console.log( data.state.direction )
+    console.log( data.state.url )
+    console.log( data.state.hash )
+  });
+
   (function(mm, $){
     mm.fetchCampaigns = function(){
 
@@ -28,6 +38,7 @@
         success: function(response){
           console.info('fetch campaign response', response)
           mm.org100426 = response;
+          mm.serialize();
         },
         error: function(response){
           console.info('fetch campaign error', response)
@@ -38,16 +49,45 @@
       });
 
     }
-  })(window.mm = window.mm || {}, window.jQuery);
 
-  $( window ).on( "navigate", function( event, data ) {
-    console.log( event );
-    console.log( data );
-    console.log( data.state.info );
-    console.log( data.state.direction )
-    console.log( data.state.url )
-    console.log( data.state.hash )
-  });
+    mm.serialize = function(){
+      var data = $(mm.org100426);
+
+      if (!data){
+        mm.fetchCampaigns();
+        return;
+      }
+
+      var $campaigns = $(mm.org100426).find('entities').find('entity[type=campaign]');
+      var $template = $('.template');
+      var $collapsiblesetEl = $("#collapsiblesetForFilter");
+
+// mm-campaignId
+// mm-campaignName
+// mm-budget
+// mm-totalBudget
+//
+      $.each($campaigns, function(index, value){
+
+        var $val = $(value);
+        var campaignName = $val.attr('name');
+        var campaignId = $val.attr('id');
+        var budget = $val.attr('budget');
+        var totalBudget = $val.attr('total_budget');
+
+        $template.clone().removeClass('template')
+        .find('mm-campaignName').html(campaignName).end()
+        .find('mm-campaignId').html(campaignId).end()
+        .find('mm-budget').html(budget).end()
+        .find('mm-totalBudget').html(totalBudget).end()
+      })
+
+
+    }
+
+    mm.fetchCampaigns();
+
+  })(window.mm = window.mm || {}, window.jQuery);
 
   $(function(){
 
@@ -81,7 +121,7 @@
           $.cookie('adama_session', sessionid)
           $.mobile.navigate( "#activity");
           // $('a.hidden').click();
-          // mm.fetchCampaigns();
+          mm.fetchCampaigns();
         },
         error: function(response){
           console.info('response error', response)
@@ -143,20 +183,20 @@
       margin-left: auto;
       margin-right: auto;
     }
-    
+
     .ui-input-search, ui-body-inherit, ui-corner-all, ui-shadow-inset, ui-input-has-clear {
     margin-top:-0.8em;
     margin-bottom:-0.8em;
     }
-    
+
     .ui-collapsible, ui-collapsible-inset, ui-corner-all, ui-collapsible-themed-content, ui-collapsible-collapsed {
     line-height:0.3em;
     }
-    
+
     .ui-collapsible-heading {
-    margin-top: -1em;
+    margin-top: 10px;
     }
-    
+
   </style>
   <link rel="stylesheet" href="jqmob.css">
 
@@ -192,190 +232,46 @@
   <a class="hidden" data-transition="slideup"  href="#activity">Sign In</a>
 
   <!--Activity Page-->
-  <div data-role="page" data-theme="a" id="activity">
-    <div data-role="header" data-theme="f">
-      <div class="ui-nodisc-icon ui-alt-icon">
-      <a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back"></a>
-        <h4>Activity</h4>
+<div data-role="page" data-theme="a" id="activity">
+<div class="container">
+<div class="row">
+<div data-role="header" data-theme="f">
+<div class="ui-nodisc-icon ui-alt-icon">
+<a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back"></a>
+<h4>Activity</h4>
+</div>
+</div>
+</div>
+<div class="row">
+<form>
+<input data-type="search" id="searchForCollapsibleSet" data-filter-placeholder="Search advertiser">
+</form>
+</div>
+<div class="row">
+
+<div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+  <div class="mm-template" data-role="collapsible" data-filtertext="Advertiser 1">
+  <h3>
+    <div class="col-xs-2 campaignId">Lorem ipsum</div>
+    <div class="col-xs-2 mm-campaignName">Lorem ipsum</div>
+    <div class="col-xs-2 mm-budget">125.23</div>
+    <div class="col-xs-2 mm-totalBudget">12.30</div>
+    </h3>
+    <div data-role="listview" data-inset="false">
+      <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
+      <div>PAUSE</div>
     </div>
   </div>
- <form>
-    <input data-type="search" id="searchForCollapsibleSet" data-filter-placeholder="Search advertiser">
-</form>
-    <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-        <div data-role="collapsible" data-filtertext="Advertiser 1">
-            <h3>Advertiser 1</h3>
-            <ul data-role="listview" data-inset="false">
-                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-        <div data-role="collapsible" data-filtertext="Advertiser 2">
-            <h3>Advertiser 2</h3>
-            <ul data-role="listview" data-inset="false">
-                <li><p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-        <div data-role="collapsible" data-filtertext="Advertiser 3">
-            <h3>Advertiser 3</h3>
-            <ul data-role="listview" data-inset="false">
-                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-       <div data-role="collapsible" data-filtertext="Advertiser 4">
-            <h3>Advertiser 4</h3>
-            <ul data-role="listview" data-inset="false">
-                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-       <div data-role="collapsible" data-filtertext="Advertiser 5">
-            <h3>Advertiser 5</h3>
-            <ul data-role="listview" data-inset="false">
-                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-       <div data-role="collapsible" data-filtertext="Advertiser 6">
-            <h3>Advertiser 6</h3>
-            <ul data-role="listview" data-inset="false">
-                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-       <div data-role="collapsible" data-filtertext="Advertiser 7">
-            <h3>Advertiser 7</h3>
-            <ul data-role="listview" data-inset="false">
-                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-       <div data-role="collapsible" data-filtertext="Advertiser 8">
-            <h3>Advertiser 8</h3>
-            <ul data-role="listview" data-inset="false">
-                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
-            </ul>
-        </div>
-        <div data-role="footer" data-theme="f">
-        <p></p>
-      </div>
-    </div>
+</div>
+
+<div data-role="footer" data-theme="f">
+</div>
+</div>
+</div>
+</div>
   </div>
 
     <!--Activity Ends-->
-
-<!--DETAILS Page-->
-    <div data-role="page" id="details" data-theme="a">
-      <div data-role="header" data-theme="f">
-        <div class="ui-nodisc-icon ui-alt-icon">
-          <a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back">Back</a>
-          <h4>Details</h4>
-          <a href="#edit" class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-icon-edit ui-btn-icon-notext ui-btn-inline ui-btn-a">Edit Icon</a></div>
-      </div>
-      <div data-role="collapsible" data-inset="false">
-        <h1>Campaign name 1</h1>
-          <p><img src="https://placekitten.com/g/450/300" alt=""></p>
-      </div>
-      <!--collapsible -->
-    <div data-role="collapsible" data-inset="false">
-        <h3>Campaign name 2</h3>
-       <p><img src="https://placekitten.com/g/450/300" alt=""></p>
-      </div>
-      <!--collapsible -->
-      <div data-role="collapsible" data-inset="false" >
-        <h3>Campaign name 3</h3>
-       <p><img src="https://placekitten.com/g/450/300" alt=""></p>
-      </div>
-      <!--collapsible -->
-      <div data-role="collapsible" data-inset="false">
-        <h3>Campaign name 4</h3>
-        <p><img src="https://placekitten.com/g/450/300" alt=""></p>
-      </div>
-      <!--collapsible -->
-      <div data-role="collapsible" data-inset="false">
-        <h3>Campaign name 5</h3>
-       <p><img src="https://placekitten.com/g/450/300" alt=""></p>
-      </div>
-      <!--collapsible -->
-      <div data-role="collapsible" data-inset="false">
-        <h3>Campaign name 6</h3>
-        <p><img src="https://placekitten.com/g/450/300" alt=""></p>
-      </div> <!--collapsible -->
-       <!--collapsible -->
-      <div data-role="collapsible" data-inset="false">
-       <h3>Campaign name 7</h3>
-        <p><img src="https://placekitten.com/g/450/300" alt=""></p>
-      </div> <!--collapsible -->
-      <div data-role="footer" data-theme="f">
-        <p></p>
-      </div>
-    </div>
-  
-  <!--
-    <div data-role="page" id="edit" data-theme="a">
-      <div data-role="header" data-theme="f">
-        <div class="ui-nodisc-icon ui-alt-icon">
-          <a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back">Back</a>
-          <h4>Edit</h4></div>
-      </div>
-      <form>
-        <fieldset data-role="controlgroup">
-          <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a">
-          <label for="checkbox-v-2a">Campaign name</label>
-          <input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b">
-          <label for="checkbox-v-2b">Strategy name</label>
-          <input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c">
-          <label for="checkbox-v-2c">Strategy name</label>
-          <input type="checkbox" name="checkbox-v-2d" id="checkbox-v-2d">
-          <label for="checkbox-v-2d">Strategy name</label>
-          <input type="checkbox" name="checkbox-v-2e" id="checkbox-v-2e">
-          <label for="checkbox-v-2e">Strategy name</label>
-          <input type="checkbox" name="checkbox-v-2f" id="checkbox-v-2f">
-          <label for="checkbox-v-2f">Strategy name</label>
-          <input type="checkbox" name="checkbox-v-2g" id="checkbox-v-2g">
-          <label for="checkbox-v-2g">Strategy name</label>
-        </fieldset>
-      </form>
-      <div data-role="footer" data-theme="f">
-        <a href="#popup1" id="btn-pause" class="ui-btn ui-btn-inline ui-btn-a ui-btn-left ui-corner-all" data-rel="dialog" data transition="pop" data-corners="false" data-iconshadow="false">Pause</a>
-        <a href="#popup2" id="btn-activate" class="ui-btn ui-btn-inline ui-btn-right ui-corner-all" data-rel="dialog" data-transition="pop">Activate</a>
-      </div>
-    </div>-->
-
-   <!--Popup1
-    <div data-role="page" id="popup1" data-theme="a">
-      <div class="ui-nodisc-icon ui-alt-icon">
-        <div data-role="header" data-theme="f">
-          <h4>Pause</h4>
-        </div>
-      </div>
-      <div role="main" data-overlay-theme="a" class="ui-content">
-        <p>Selected campaign/strategies</p>
-      </div>
-      <div data-role="footer" data-theme="a">
-        <a href="#" id="btn-cancel2" data-rel="back" class="ui-btn ui-btn-inline">Cancel</a>
-        <a href="#" id="btn-confirm2" data-rel="back" class="ui-btn ui-btn-inline">Confirm</a>
-      </div>
-    </div>
-  </div>
--->
-  <!--page popup-->
-  <!--page popup1 -->
-
-  <!--Popup2
-  <div data-role="page" id="popup2">
-    <div class="ui-nodisc-icon ui-alt-icon">
-      <div data-role="header" data-theme="f">
-        <h4>Activate</h4>
-      </div>
-    </div>
-
-    <div role="main" class="ui-content">
-      <p>Selected campaign/strategies</p>
-    </div>
-
-    <div data-role="footer" data-theme="a">
-      <a href="#" id="btn-cancel2" data-rel="back" class="ui-btn ui-btn-inline">Cancel</a>
-      <a href="#" id="btn-confirm2" data-rel="back" class="ui-btn ui-btn-inline">Confirm</a>
-    </div>
-  </div>
-  </div>
- -->
 
 </body>
 </html>
