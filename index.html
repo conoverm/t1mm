@@ -71,15 +71,13 @@
 
       $.each($campaigns, function(index, value){
         var $val = $(value);
-        console.log($val);
         var campaignName = $val.attr('name');
         var campaignId = $val.attr('id');
         var totalBudget = $val.find('prop[name=total_budget]').attr('value');
         var version = $val.attr('version');
         var status = $val.find('prop[name=status]').attr('value');
 
-        $template.clone().removeClass('mm-template hidden')
-
+        $newItem = $template.clone().removeClass('mm-template hidden')
         .data('campaign-id', campaignId)
         .appendTo('#collapsiblesetForFilter')
         .attr('data-filtertext', campaignName)
@@ -90,6 +88,11 @@
         .find('.mm-campaignId').html(campaignId).end()
         .find('.mm-totalBudget').html(totalBudget).end()
         .collapsible();
+
+        if (!parseInt(status)) {
+          $newItem.addClass('inactive');
+          $newItem.find('.startStopCampaign').text('Activate')
+        }
       });
 
 
@@ -143,14 +146,14 @@
 
   })
   $(function(){
-    $(document).on('click', '#startStopCampaign', function(e) {
+    $(document).on('click', '.startStopCampaign', function(e) {
       e.preventDefault();
-      $listItem = $(this).closest('.campaignItem');
-      var campaignID = $listItem.attr('data-id');
+      $listItem = $(this).closest('.mm-campaign-item');
+      _this = $(this);
+      var campaignID = $listItem.attr('data-mm-campaignId');
       var version = parseInt($listItem.attr('data-mm-version'));
       var status = parseInt($listItem.attr('data-mm-status'));
 
-      console.log('yooooo' + campaignID);
       $.ajax({
         method: 'POST',
         url: 'https://t1qa2.mediamath.com/api/v2.0/campaigns/' + campaignID + '?currentTime=' + Date.now(),
@@ -163,11 +166,13 @@
         },
         success: function(res) {
           console.log(res);
+          if (parseInt(status)) {
+            _this.text('Activate');
+          }
           $listItem.toggleClass('inactive');
         },
         error: function(res) {
           console.log(res);
-          alert(res.statusText);
         }
       });
 
@@ -234,7 +239,9 @@
     .ui-collapsible-heading {
     margin-top: 10px;
     }
-
+    .mm-campaign-item.inactive {
+      opacity: 0.4;
+    }
   </style>
   <link rel="stylesheet" href="jqmob.css">
 
@@ -289,7 +296,7 @@
 
 <div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
 <!--   <div class="mm-template hidden" data-role="collapsible" data-filtertext="Advertiser 1"> -->
-  <div class="mm-template hidden mm-collapsible" data-filtertext="Advertiser 1">
+  <div class="mm-template mm-campaign-item hidden mm-collapsible" data-filtertext="Advertiser 1">
 
   <h5>
     <div class="col-xs-3 mm-campaignId">Lorem ipsum</div>
@@ -298,7 +305,7 @@
     </h5>
     <div data-role="listview" data-inset="false">
       <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
-      <div><a id="startStopCampaign" href="#">Deactivate</div>
+      <div><a class="startStopCampaign" href="#">Deactivate</a></div>
     </div>
   </div>
 </div>
