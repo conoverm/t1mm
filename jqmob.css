@@ -7,8 +7,9 @@ h1 {
   text-align: center;
 }
 
+
 h4 {
-  color: #fff;
+  color: #fff !important;
   font-size: 1em;
   font-weight: 300;
   text-align: center;
@@ -19,8 +20,7 @@ h4 {
 input, placeholder {
 text-shadow: none;
 font-weight: 200;
-font-size: 1em;
-
+font-size: 1em;  
 }
 
 li{
@@ -142,12 +142,12 @@ margin-top: 0.4em;
 #login {
   background-color: #40587c;
 }
-/*
-.t1logo {
-  align-content: center;
-}*/
 
+.ui-input-text input, .ui-input-search input {
+ text-shadow: none;  
+}
 .ui-input-search input {
+  text-shadow: 0;
   border-style: none;
   border-color: #cccccc;
 }

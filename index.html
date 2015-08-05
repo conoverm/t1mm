@@ -110,7 +110,7 @@
     }
 
     .ui-btn-e {
-      font-weight: 800;
+      font-weight: 700;
       background-color: #77BDF5;
       border-style: none;
     }
@@ -123,7 +123,7 @@
     }
 
     .ui-body-f {
-      font-weight: bold;
+      font-weight: 400;
       text-shadow: none;
       color: #000;
       background-color: #F0F0F0;
@@ -143,6 +143,20 @@
       margin-left: auto;
       margin-right: auto;
     }
+    
+    .ui-input-search, ui-body-inherit, ui-corner-all, ui-shadow-inset, ui-input-has-clear {
+    margin-top:-0.8em;
+    margin-bottom:-0.8em;
+    }
+    
+    .ui-collapsible, ui-collapsible-inset, ui-corner-all, ui-collapsible-themed-content, ui-collapsible-collapsed {
+    line-height:0.3em;
+    }
+    
+    .ui-collapsible-heading {
+    margin-top: -1em;
+    }
+    
   </style>
   <link rel="stylesheet" href="jqmob.css">
 
@@ -150,7 +164,6 @@
 
 <body>
 
-  <!--Login Page-->
   <div data-role="page" data-theme="f" id="login">
     <div data-role="main" class="ui-content" data-theme="f">
 
@@ -177,34 +190,73 @@
     </div>
   </div>
   <a class="hidden" data-transition="slideup"  href="#activity">Sign In</a>
-  <!--Login Page Ends-->
 
   <!--Activity Page-->
-
   <div data-role="page" data-theme="a" id="activity">
-    <div class="container">
     <div data-role="header" data-theme="f">
-
-
-
       <div class="ui-nodisc-icon ui-alt-icon">
-        <a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back"></a>
+      <a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back"></a>
         <h4>Activity</h4>
-      </div>
-
-      <div data-role="main" class="ui-content ui-body-f ui-nodisc-icon ui-alt-icon">
-        <ul data-role="listview" data-inset="false" class="search ui-btn-a" data-clear-btn data-filter="true" data-filter-placeholder="Search advertiser">
-          <li><a href="#details"><h2>Advertiser_1</h2><p><strong>Campaign name</strong></p></a></li>
-          <li><a href="#details"><h2>Advertiser_2</h2><p><strong>Campaign name</strong></p></a></li>
-          <li><a href="#details"><h2>Advertiser_3</h2><p><strong>Campaign name</strong></p></a></li>
-          <li><a href="#details"><h2>Advertiser_4</h2><p><strong>Campaign name</strong></p></a></li>
-          <li><a href="#details"><h2>Advertiser_5</h2><p><strong>Campaign name</strong></p></a></li>
-        </ul>
-        </div>
-
-      </div>
     </div>
-</div>
+  </div>
+ <form>
+    <input data-type="search" id="searchForCollapsibleSet" data-filter-placeholder="Search advertiser">
+</form>
+    <div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+        <div data-role="collapsible" data-filtertext="Advertiser 1">
+            <h3>Advertiser 1</h3>
+            <ul data-role="listview" data-inset="false">
+                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+        <div data-role="collapsible" data-filtertext="Advertiser 2">
+            <h3>Advertiser 2</h3>
+            <ul data-role="listview" data-inset="false">
+                <li><p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+        <div data-role="collapsible" data-filtertext="Advertiser 3">
+            <h3>Advertiser 3</h3>
+            <ul data-role="listview" data-inset="false">
+                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+       <div data-role="collapsible" data-filtertext="Advertiser 4">
+            <h3>Advertiser 4</h3>
+            <ul data-role="listview" data-inset="false">
+                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+       <div data-role="collapsible" data-filtertext="Advertiser 5">
+            <h3>Advertiser 5</h3>
+            <ul data-role="listview" data-inset="false">
+                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+       <div data-role="collapsible" data-filtertext="Advertiser 6">
+            <h3>Advertiser 6</h3>
+            <ul data-role="listview" data-inset="false">
+                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+       <div data-role="collapsible" data-filtertext="Advertiser 7">
+            <h3>Advertiser 7</h3>
+            <ul data-role="listview" data-inset="false">
+                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+       <div data-role="collapsible" data-filtertext="Advertiser 8">
+            <h3>Advertiser 8</h3>
+            <ul data-role="listview" data-inset="false">
+                <li> <p><img src="https://placekitten.com/g/450/300" alt=""></p></li>
+            </ul>
+        </div>
+        <div data-role="footer" data-theme="f">
+        <p></p>
+      </div>
+    </div>
+  </div>
+
     <!--Activity Ends-->
 
 <!--DETAILS Page-->
@@ -217,62 +269,44 @@
       </div>
       <div data-role="collapsible" data-inset="false">
         <h1>Campaign name 1</h1>
-        <ul data-role="listview" data-inset="false" class="ui-nodisc-icon ui-alt-icon">
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-        </ul>
+          <p><img src="https://placekitten.com/g/450/300" alt=""></p>
       </div>
       <!--collapsible -->
     <div data-role="collapsible" data-inset="false">
         <h3>Campaign name 2</h3>
-        <ul data-role="listview">
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-        </ul>
+       <p><img src="https://placekitten.com/g/450/300" alt=""></p>
       </div>
       <!--collapsible -->
-      <div data-role="collapsible" data-inset="false">
+      <div data-role="collapsible" data-inset="false" >
         <h3>Campaign name 3</h3>
-        <ul data-role="listview">
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-        </ul>
+       <p><img src="https://placekitten.com/g/450/300" alt=""></p>
       </div>
       <!--collapsible -->
       <div data-role="collapsible" data-inset="false">
         <h3>Campaign name 4</h3>
-        <ul data-role="listview">
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-        </ul>
+        <p><img src="https://placekitten.com/g/450/300" alt=""></p>
       </div>
       <!--collapsible -->
       <div data-role="collapsible" data-inset="false">
         <h3>Campaign name 5</h3>
-        <ul data-role="listview">
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-        </ul>
+       <p><img src="https://placekitten.com/g/450/300" alt=""></p>
       </div>
       <!--collapsible -->
       <div data-role="collapsible" data-inset="false">
         <h3>Campaign name 6</h3>
-        <ul data-role="listview">
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-          <li><a href="#edit">Strategy name</a></li>
-        </ul>
+        <p><img src="https://placekitten.com/g/450/300" alt=""></p>
+      </div> <!--collapsible -->
+       <!--collapsible -->
+      <div data-role="collapsible" data-inset="false">
+       <h3>Campaign name 7</h3>
+        <p><img src="https://placekitten.com/g/450/300" alt=""></p>
       </div> <!--collapsible -->
       <div data-role="footer" data-theme="f">
         <p></p>
       </div>
     </div>
-    <!-- /Campaign Details -->
+  
+  <!--
     <div data-role="page" id="edit" data-theme="a">
       <div data-role="header" data-theme="f">
         <div class="ui-nodisc-icon ui-alt-icon">
@@ -297,14 +331,13 @@
           <label for="checkbox-v-2g">Strategy name</label>
         </fieldset>
       </form>
-      <!--end of form-->
       <div data-role="footer" data-theme="f">
         <a href="#popup1" id="btn-pause" class="ui-btn ui-btn-inline ui-btn-a ui-btn-left ui-corner-all" data-rel="dialog" data transition="pop" data-corners="false" data-iconshadow="false">Pause</a>
         <a href="#popup2" id="btn-activate" class="ui-btn ui-btn-inline ui-btn-right ui-corner-all" data-rel="dialog" data-transition="pop">Activate</a>
       </div>
-    </div>
+    </div>-->
 
-    <!--Popup1-->
+   <!--Popup1
     <div data-role="page" id="popup1" data-theme="a">
       <div class="ui-nodisc-icon ui-alt-icon">
         <div data-role="header" data-theme="f">
@@ -318,13 +351,13 @@
         <a href="#" id="btn-cancel2" data-rel="back" class="ui-btn ui-btn-inline">Cancel</a>
         <a href="#" id="btn-confirm2" data-rel="back" class="ui-btn ui-btn-inline">Confirm</a>
       </div>
-      <!--footer-->
     </div>
   </div>
+-->
   <!--page popup-->
   <!--page popup1 -->
 
-  <!--Popup2-->
+  <!--Popup2
   <div data-role="page" id="popup2">
     <div class="ui-nodisc-icon ui-alt-icon">
       <div data-role="header" data-theme="f">
@@ -340,10 +373,9 @@
       <a href="#" id="btn-cancel2" data-rel="back" class="ui-btn ui-btn-inline">Cancel</a>
       <a href="#" id="btn-confirm2" data-rel="back" class="ui-btn ui-btn-inline">Confirm</a>
     </div>
-    <!--footer-->
   </div>
   </div>
-  <!--page popup-->
+ -->
 
 </body>
 </html>
