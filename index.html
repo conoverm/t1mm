@@ -31,8 +31,8 @@
        $.ajax({
         method: 'GET',
 
-        // url: 'http://compass.dev/api/v2.0/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
-        url: 'org100426.xml',
+        url: 'http://compass.dev/api/v2.0/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
+        // url: 'org100426.xml',
         // org with campaign with budget flights
 
         success: function(response){
@@ -48,10 +48,6 @@
         }
       });
 
-    }
-
-    function getHourlyCampaignSpend(){
-       // "http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id=115888&type=hourly"
     }
 
     mm.serialize = function(){
@@ -79,7 +75,6 @@
         var status = $val.find('prop[name=status]').attr('value');
         var hourly; var daily;
 
-
       $.ajax({
         method: 'GET',
         url: "http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id="+campaignId+"&type=hourly",
@@ -104,7 +99,7 @@
         // })
 
 
-        $template.clone().removeClass('mm-template hidden')
+        $newItem = $template.clone().removeClass('mm-template hidden')
         .data('campaign-id', campaignId)
         .appendTo('#collapsiblesetForFilter')
         .attr('data-filtertext', campaignName)
@@ -116,7 +111,11 @@
         .find('.mm-totalBudget').html(totalBudget).end()
         .collapsible();
 
-      })
+        if (!parseInt(status)) {
+          $newItem.addClass('inactive');
+          $newItem.find('.startStopCampaign').text('Activate')
+        }
+      });
 
 
     }
@@ -169,6 +168,45 @@
 
   })
 
+  $(function pauseCampaign(){
+
+    $(document).on('click', '.startStopCampaign', function(e) {
+      e.preventDefault();
+
+      $listItem = $(this).closest('.mm-campaign-item');
+
+      _this = $(this);
+      var campaignID = $listItem.attr('data-mm-campaignId');
+      var version = parseInt($listItem.attr('data-mm-version'));
+      var status = parseInt($listItem.attr('data-mm-status'));
+
+      $.ajax({
+        method: 'POST',
+        url: 'https://t1qa2.mediamath.com/api/v2.0/campaigns/' + campaignID + '?currentTime=' + Date.now(),
+        data: {
+          version: version,
+          status: !status
+        },
+        xhrFields: {
+          withCredentials: true
+        },
+        success: function(res) {
+          console.log(res);
+          if (parseInt(status)) {
+            _this.text('Activate');
+          }
+          else{
+            _this.text('Deactivate');
+          }
+          $listItem.toggleClass('inactive');
+        },
+        error: function(res) {
+          console.log(res);
+        }
+      });
+
+    });
+  });
   </script>
 
   <style>
@@ -230,6 +268,18 @@
     .ui-collapsible-heading {
     margin-top: 10px;
     }
+    .mm-campaign-item.inactive {
+      opacity: 0.4;
+    }
+
+    .t1-mini {
+      width: 2.5em;
+      height: 2.5em;
+      display: block;
+      margin-top: 0.1em;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
   </style>
   <link rel="stylesheet" href="jqmob.css">
@@ -271,8 +321,8 @@
 <div class="row">
 <div data-role="header" data-theme="f">
 <div class="ui-nodisc-icon ui-alt-icon">
-<a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back"></a>
-<h4>Activity</h4>
+<!-- <a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back"></a> -->
+<img class="t1-mini" src="https://s3.amazonaws.com/uploads.hipchat.com/14134/531235/7WKwRlU3qZkQnO6/Screen%20Shot%202015-08-05%20at%207.04.48%20PM.png">
 </div>
 </div>
 </div>
@@ -284,9 +334,7 @@
 <div class="row">
 
 <div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-<!--   <div class="mm-template hidden" data-role="collapsible" data-filtertext="Advertiser 1"> -->
-  <div class="mm-template hidden mm-collapsible" data-filtertext="Advertiser 1">
-
+<div class="mm-template mm-campaign-item hidden mm-collapsible" data-filtertext="Advertiser 1">
   <h5>
     <div class="col-xs-3 mm-campaignId">Lorem ipsum</div>
     <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
@@ -295,7 +343,7 @@
     </h5>
     <div data-role="listview" data-inset="false">
       <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
-      <div>PAUSE</div>
+      <div><a class="startStopCampaign" href="#">Deactivate</a></div>
     </div>
   </div>
 </div>
@@ -305,7 +353,7 @@
 </div>
 </div>
 </div>
-  </div>
+</div>
 
     <!--Activity Ends-->
 
