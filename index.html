@@ -169,6 +169,9 @@
           if (parseInt(status)) {
             _this.text('Activate');
           }
+          else{
+            _this.text('Deactivate');
+          }
           $listItem.toggleClass('inactive');
         },
         error: function(res) {
