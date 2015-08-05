@@ -50,6 +50,10 @@
 
     }
 
+    function getHourlyCampaignSpend(){
+       // "http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id=115888&type=hourly"
+    }
+
     mm.serialize = function(){
       var data = $(mm.org100426);
 
@@ -59,27 +63,33 @@
       }
 
       var $campaigns = $(mm.org100426).find('entities').find('entity[type=campaign]');
-      var $template = $('.template');
+      var $template = $('.mm-template');
       var $collapsiblesetEl = $("#collapsiblesetForFilter");
 
 // mm-campaignId
 // mm-campaignName
-// mm-budget
 // mm-totalBudget
-//
+
       $.each($campaigns, function(index, value){
 
         var $val = $(value);
         var campaignName = $val.attr('name');
         var campaignId = $val.attr('id');
-        var budget = $val.attr('budget');
-        var totalBudget = $val.attr('total_budget');
 
-        $template.clone().removeClass('template')
-        .find('mm-campaignName').html(campaignName).end()
-        .find('mm-campaignId').html(campaignId).end()
-        .find('mm-budget').html(budget).end()
-        .find('mm-totalBudget').html(totalBudget).end()
+        var totalBudget = $val.find('prop[name=total_budget]').attr('value');
+        console.info('campaignName', campaignName);
+
+console.info('campaignId', campaignId);
+console.info('totalBudget', totalBudget);
+
+        $template.clone().removeClass('mm-template hidden').data('campaign-id', campaignId)
+        .appendTo('#collapsiblesetForFilter')
+        .attr('data-filtertext', campaignName)
+        .find('.mm-campaignName').html(campaignName).end()
+        .find('.mm-campaignId').html(campaignId).end()
+        .find('.mm-totalBudget').html(totalBudget).end();
+
+
       })
 
 
@@ -94,8 +104,6 @@
     mm.login = function(){
     console.info('login init');
 
-    $('#user').val('mconover')
-    $('#password').val('MEdi2014')
 
     $('form#login-form').on('submit', function(e){
       e.preventDefault();
@@ -184,11 +192,6 @@
       margin-right: auto;
     }
 
-    .ui-input-search, ui-body-inherit, ui-corner-all, ui-shadow-inset, ui-input-has-clear {
-    margin-top:-0.8em;
-    margin-bottom:-0.8em;
-    }
-
     .ui-collapsible, ui-collapsible-inset, ui-corner-all, ui-collapsible-themed-content, ui-collapsible-collapsed {
     line-height:0.3em;
     }
@@ -250,12 +253,11 @@
 <div class="row">
 
 <div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-  <div class="mm-template" data-role="collapsible" data-filtertext="Advertiser 1">
+  <div class="mm-template hidden" data-role="collapsible" data-filtertext="Advertiser 1">
   <h3>
-    <div class="col-xs-2 campaignId">Lorem ipsum</div>
-    <div class="col-xs-2 mm-campaignName">Lorem ipsum</div>
-    <div class="col-xs-2 mm-budget">125.23</div>
-    <div class="col-xs-2 mm-totalBudget">12.30</div>
+    <div class="col-xs-4 mm-campaignId">Lorem ipsum</div>
+    <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
+    <div class="col-xs-4 mm-totalBudget">0.00</div>
     </h3>
     <div data-role="listview" data-inset="false">
       <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
