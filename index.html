@@ -26,7 +26,7 @@
     for(var i=0; i<dataConfig.noOfLines; i++){
       var line = [];
       for(var j=0; j<dataConfig.noOfDataPoints; j++){
-        line.push([j+1, Math.floor(Math.random() * dataConfig.maxValue) + dataConfig.minValue])
+        line.push([j+1, Math.round(Math.random() * dataConfig.maxValue) + dataConfig.minValue])
       }
       result.push(line);
     }
@@ -116,7 +116,7 @@
           console.info('fetch campaign response', response)
           mm.org100426 = response;
           mm.serialize();
-          jQuery("h5.ui-collapsible-heading").click(function (){
+          jQuery(".ui-collapsible-heading").click(function (){
             var classVal = jQuery(this).attr('class');
             console.log(classVal);
             if($(this).parent().find('div.line-chart').html() == ""){
