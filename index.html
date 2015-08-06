@@ -244,50 +244,51 @@
 
   (function pauseCampaign(mm, $){
 
-  $(function(){
-    $(document).on('click', '.startStopCampaign', function(e) {
-      e.preventDefault();
+    $(function(){
+      $(document).on('click', '.startStopCampaign', function(e) {
+        e.preventDefault();
 
-      $listItem = $(this).closest('.mm-campaign-item');
+        $listItem = $(this).closest('.mm-campaign-item');
 
-      _this = $(this);
-      var campaignID = $listItem.attr('data-mm-campaignId');
-      var version = parseInt($listItem.attr('data-mm-version'));
-      var status = parseInt($listItem.attr('data-mm-status'));
+        _this = $(this);
+        var campaignID = $listItem.attr('data-mm-campaignId');
+        var version = parseInt($listItem.attr('data-mm-version'));
+        var status = parseInt($listItem.attr('data-mm-status'));
 
-      $.ajax({
-        method: 'POST',
-        url: apiBase + '/campaigns/' + campaignID + '?currentTime=' + Date.now(),
-        data: {
-          version: version,
-          status: !status
-        },
-        xhrFields: {
-          withCredentials: true
-        },
-        success: function(res) {
-          console.log(res);
-          if (parseInt(status)) {
-            _this.text('Activate');
+        $.ajax({
+          method: 'POST',
+          url: apiBase + '/campaigns/' + campaignID + '?currentTime=' + Date.now(),
+          data: {
+            version: version,
+            status: !status
+          },
+          xhrFields: {
+            withCredentials: true
+          },
+          success: function(res) {
+            console.log(res);
+            if (parseInt(status)) {
+              _this.text('Activate');
+            }
+            else{
+              _this.text('Deactivate');
+            }
+            $listItem.toggleClass('inactive');
+
+            $template = $('.mm-template');
+            $campaignsList = $('#campaignsList')
+            $campaignsList.html('');
+            $campaignsList.append($template);
+            mm.fetchCampaigns();
+          },
+          error: function(res) {
+            console.log(res);
           }
-          else{
-            _this.text('Deactivate');
-          }
-          $listItem.toggleClass('inactive');
+        });
 
-          $template = $('.mm-template');
-          $campaignsList = $('#campaignsList')
-          $campaignsList.html('');
-          $campaignsList.append($template);
-          mm.fetchCampaigns();
-        },
-        error: function(res) {
-          console.log(res);
-        }
       });
 
-    });
-  }
+
   });
 
   })(window.mm = window.mm || {}, window.jQuery);
