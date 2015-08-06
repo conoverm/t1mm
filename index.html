@@ -24,14 +24,16 @@
     console.log( data.state.hash )
   });
 
+  var apiBase = 'http://compass.dev/api/v2.0';
+
   (function(mm, $){
     mm.fetchCampaigns = function(){
 
        $.ajax({
         method: 'GET',
 
-        // url: 'http://compass.dev/api/v2.0/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
-        url: 'org100426.xml',
+        url: apiBase + '/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
+        // url: 'org100426.xml',
         // org with campaign with budget flights
 
         success: function(response){
@@ -79,7 +81,7 @@
 
         $newItem = $template.clone().removeClass('mm-template hidden')
         .data('campaign-id', campaignId)
-        .appendTo('#collapsiblesetForFilter')
+        .appendTo('#campaignsList')
         .attr('data-filtertext', campaignName)
         .attr('data-mm-version', version)
         .attr('data-mm-status', status)
@@ -91,7 +93,7 @@
 
         if (!parseInt(status)) {
           $newItem.addClass('inactive');
-          $newItem.find('.startStopCampaign').text('Activate')
+          $newItem.find('.startStopCampaign').text('Activate');
         }
       });
 
@@ -120,7 +122,7 @@
 
       $.ajax({
         method: 'POST',
-        url: 'https://t1qa2.mediamath.com/api/v2.0/login',
+        url: apiBase + '/login',
         data: {
           user: user,
           password: password,
@@ -144,7 +146,9 @@
 
     mm.login();
 
-  })
+  });
+
+  (function(mm, $){
   $(function(){
     $(document).on('click', '.startStopCampaign', function(e) {
       e.preventDefault();
@@ -156,7 +160,7 @@
 
       $.ajax({
         method: 'POST',
-        url: 'https://t1qa2.mediamath.com/api/v2.0/campaigns/' + campaignID + '?currentTime=' + Date.now(),
+        url: apiBase + '/campaigns/' + campaignID + '?currentTime=' + Date.now(),
         data: {
           version: version,
           status: !status
@@ -173,6 +177,12 @@
             _this.text('Deactivate');
           }
           $listItem.toggleClass('inactive');
+
+          $template = $('.mm-template');
+          $campaignsList = $('#campaignsList')
+          $campaignsList.html('');
+          $campaignsList.append($template);
+          mm.fetchCampaigns();
         },
         error: function(res) {
           console.log(res);
@@ -181,6 +191,8 @@
 
     });
   });
+
+  })(window.mm = window.mm || {}, window.jQuery);
   </script>
 
   <style>
@@ -245,6 +257,9 @@
     .mm-campaign-item.inactive {
       opacity: 0.4;
     }
+    .glyphicon {
+      font-size: 1.5em;
+    }
   </style>
   <link rel="stylesheet" href="jqmob.css">
 
@@ -297,18 +312,19 @@
 </div>
 <div class="row">
 
-<div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+<div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="campaignsList" data-input="#searchForCollapsibleSet">
 <!--   <div class="mm-template hidden" data-role="collapsible" data-filtertext="Advertiser 1"> -->
   <div class="mm-template mm-campaign-item hidden mm-collapsible" data-filtertext="Advertiser 1">
 
   <h5>
-    <div class="col-xs-3 mm-campaignId">Lorem ipsum</div>
     <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
     <div class="col-xs-4 mm-totalBudget right">0.00</div>
+    <div class="col-xs-4">
+      <a href="#" class="startStopCampaign"><span class="glyphicon glyphicon-pause"></span> <strong>Deactivate</strong></a>
+    </div>
     </h5>
     <div data-role="listview" data-inset="false">
       <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
-      <div><a class="startStopCampaign" href="#">Deactivate</a></div>
     </div>
   </div>
 </div>
