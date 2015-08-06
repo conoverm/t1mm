@@ -95,6 +95,8 @@
 
   $.support.cors = true;
 
+  var apiBase = 'http://compass.dev/api/v2.0';
+
   (function(mm, $){
 
     mm.fetchCampaigns = function(){
@@ -102,7 +104,7 @@
        $.ajax({
         method: 'GET',
 
-        url: 'http://compass.dev/api/v2.0/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
+        url: apiBase + '/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
         // url: 'org100426.xml',
         // org with campaign with budget flights
 
@@ -141,7 +143,7 @@
 
       var $campaigns = $(mm.org100426).find('entities').find('entity[type=campaign]');
       var $template = $('.mm-template');
-      var $collapsiblesetEl = $("#collapsiblesetForFilter");
+      var $collapsiblesetEl = $("#campaignsList");
 
 // mm-campaignId
 // mm-campaignName
@@ -158,7 +160,7 @@
 
         $newItem = $template.clone().removeClass('mm-template hidden')
         .data('campaign-id', campaignId)
-        .appendTo('#collapsiblesetForFilter')
+        .appendTo('#campaignsList')
         .attr('data-filtertext', campaignName)
         .attr('data-mm-version', version)
         .attr('data-mm-status', status)
@@ -187,7 +189,7 @@
 
         if (!parseInt(status)) {
           $newItem.addClass('inactive');
-          $newItem.find('.startStopCampaign').text('Activate')
+          $newItem.find('.startStopCampaign').text('Activate');
         }
 
       });
@@ -215,7 +217,7 @@
 
       $.ajax({
         method: 'POST',
-        url: 'https://t1qa2.mediamath.com/api/v2.0/login',
+        url: apiBase + '/login',
         data: {
           user: user,
           password: password,
@@ -238,14 +240,12 @@
     }
 
     mm.login();
+  });
 
-  })
+  (function pauseCampaign(mm, $){
 
-  $(function (){
-
-    mm.pauseCampaign = function(el){
-
-    $(document).on('click', el, function(e) {
+  $(function(){
+    $(document).on('click', '.startStopCampaign', function(e) {
       e.preventDefault();
 
       $listItem = $(this).closest('.mm-campaign-item');
@@ -257,7 +257,7 @@
 
       $.ajax({
         method: 'POST',
-        url: 'https://t1qa2.mediamath.com/api/v2.0/campaigns/' + campaignID + '?currentTime=' + Date.now(),
+        url: apiBase + '/campaigns/' + campaignID + '?currentTime=' + Date.now(),
         data: {
           version: version,
           status: !status
@@ -274,6 +274,12 @@
             _this.text('Deactivate');
           }
           $listItem.toggleClass('inactive');
+
+          $template = $('.mm-template');
+          $campaignsList = $('#campaignsList')
+          $campaignsList.html('');
+          $campaignsList.append($template);
+          mm.fetchCampaigns();
         },
         error: function(res) {
           console.log(res);
@@ -283,6 +289,8 @@
     });
   }
   });
+
+  })(window.mm = window.mm || {}, window.jQuery);
   </script>
 
   <style>
@@ -352,7 +360,9 @@
     .mm-campaign-item.inactive {
       opacity: 0.4;
     }
-
+    .glyphicon {
+      font-size: 1.5em;
+    }
     /*
     * chart-css
     */
@@ -369,6 +379,11 @@
       margin-top: 0.1em;
       margin-left: auto;
       margin-right: auto;
+    }
+    .startstop {
+      margin-top: 19px;
+      margin-left: 24px;
+
     }
 
   </style>
@@ -421,17 +436,27 @@
 </form>
 </div>
 <div class="row">
-<div class="campaignRow">
-  <div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-  <div class="mm-template hidden mm-campaign-item mm-collapsible" data-filtertext="Advertiser 1">
-    <h5>
-      <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
-      <div class="col-xs-2 mm-totalHourlySpent">--</div>
-      <div class="col-xs-2 mm-totalDailySpent">--</div>
+
+
+<div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="campaignsList" data-input="#searchForCollapsibleSet">
+<div class="mm-template mm-campaign-item hidden mm-collapsible" data-filtertext="Advertiser 1">
+  <h5>
+    <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
+    <div class="col-xs-2 mm-totalHourlySpent">--</div>
+    <div class="col-xs-2 mm-totalDailySpent">--</div>
     </h5>
-      <div data-role="listview" data-inset="false">
-        <div><p><div class="line-chart"></div></p></div>
+    <div data-role="listview" data-inset="false">
+      <div class="row">
+        <div class="col-xs-12 startstop">
+          <a class="startStopCampaign" href="#">Deactivate</a>
+        </div>
       </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p><div class="line-chart"></div></p>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
