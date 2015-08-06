@@ -295,7 +295,7 @@
     footers and other bars*/
     /* Theme-e*/
 
-     .ui-collapsible-heading{
+    .ui-collapsible-heading{
       font-size:10px !important;
     }
     .ui-page-theme-e {
@@ -304,7 +304,8 @@
     }
 
     .ui-btn {
-      font-size: 10px !important;
+      font-size:10pt !important;
+      font-weight: normal !important;
     }
 
     .ui-btn-e {
@@ -411,14 +412,13 @@
 <div class="row">
 <div data-role="header" data-theme="f">
 <div class="ui-nodisc-icon ui-alt-icon">
-<!-- <a href="activity" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-back ui-btn-icon-notext ui-btn-inline ui-btn-a" data-rel="back"></a> -->
-<img class="t1-mini" src="https://s3.amazonaws.com/uploads.hipchat.com/14134/531235/7WKwRlU3qZkQnO6/Screen%20Shot%202015-08-05%20at%207.04.48%20PM.png">
+<img class="t1-mini" src="t1-mini-logo.png">
 </div>
 </div>
 </div>
 <div class="row">
-<form>
-<input data-type="search" id="searchForCollapsibleSet" data-filter-placeholder="Search advertiser">
+<form class="col-xs-12">
+  <input data-type="search" id="searchForCollapsibleSet" data-filter-placeholder="Search advertiser">
 </form>
 </div>
 <div class="row">
@@ -426,10 +426,10 @@
 <div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
 <div class="mm-template mm-campaign-item hidden mm-collapsible" data-filtertext="Advertiser 1">
   <h5>
-    <div class="col-xs-2 mm-campaignId">Lorem ipsum</div>
-    <div class="col-xs-3 mm-campaignName">Lorem ipsum</div>
-    <div class="col-xs-2 mm-totalHourlySpent">0.00</div>
-    <div class="col-xs-2 mm-totalDailySpent">0.00</div>
+    <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
+    <div class="col-xs-2 mm-totalHourlySpent">--</div>
+    <div class="col-xs-2 mm-totalDailySpent">--</div>
+    <div class="col-xs-2 col-xs-offset-1">play/pause</div>
     </h5>
     <div data-role="listview" data-inset="false">
       <div><p><div class="line-chart"></div></p></div>
