@@ -96,6 +96,7 @@
   $.support.cors = true;
 
   var apiBase = 'http://compass.dev/api/v2.0';
+  // var apiBase = 'http://t1qa2.mediamath.com/api/v2.0';
 
   (function(mm, $){
 
@@ -107,28 +108,28 @@
         url: apiBase + '/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
         // url: 'org100426.xml',
         // org with campaign with budget flights
-
+        // url: 'http://compass.dev/api/v2.0/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
         success: function(response){
           console.info('fetch campaign response', response)
           mm.org100426 = response;
           mm.serialize();
-          jQuery(".ui-collapsible-heading").click(function (){
-            var classVal = jQuery(this).attr('class');
-            // console.log(classVal);
-            if($(this).parent().find('div.line-chart').html() == ""){
-              var chartData = generateRandomData(dataConfig);
-              $('div.line-chart').jqplot(chartData, config);
-            }else{
-              $('div.line-chart').empty();
-            }
-          });
+          // jQuery(".ui-collapsible-heading").click(function (){
+          //   var classVal = jQuery(this).attr('class');
+          //   // console.log(classVal);
+          //   if($(this).parent().find('div.line-chart').html() == ""){
+          //     var chartData = generateRandomData(dataConfig);
+          //     $('div.line-chart').jqplot(chartData, config);
+          //   }else{
+          //     $('div.line-chart').empty();
+          //   }
+          // });
         },
         error: function(response){
           console.info('fetch campaign error', response)
         },
         xhrFields: {
           withCredentials: true
-        }
+        },
       });
 
     }
@@ -160,14 +161,15 @@
 
         $newItem = $template.clone().removeClass('mm-template hidden')
         .data('campaign-id', campaignId)
-        .appendTo('#campaignsList')
+        .appendTo('.mm-grid')
+        .find('.mm-campaign-item')
         .attr('data-filtertext', campaignName)
         .attr('data-mm-version', version)
         .attr('data-mm-status', status)
         .attr('data-mm-campaignId', campaignId)
         .find('.mm-campaignName').html(campaignName).end()
-        .find('.mm-campaignId').html(campaignId).end()
-        .collapsible();
+        .find('.mm-campaignId').html(campaignId).end();
+        // .collapsible();
 
         $.get("http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id="+campaignId+"&type=hourly")
         .done(function(response){
@@ -195,7 +197,7 @@
       });
     }
 
-    mm.fetchCampaigns();
+    // mm.fetchCampaigns();
 
   })(window.mm = window.mm || {}, window.jQuery);
 
@@ -217,11 +219,15 @@
 
       $.ajax({
         method: 'POST',
-        url: apiBase + '/login',
+        // url: apiBase + '/login',
+        url: 'https://t1qa2.mediamath.com/api/v2.0/login',
         data: {
           user: user,
           password: password,
           api_key: '7cdtqa5jaw5xtwfc8ug5njs2'
+        },
+        xhrFields: {
+          withCredentials: true
         },
         success: function(response){
           var sessionid = $(response).find('session').attr('sessionid');
@@ -279,6 +285,7 @@
             $campaignsList = $('#campaignsList')
             $campaignsList.html('');
             $campaignsList.append($template);
+            $('.mm-grid:not(.mm-template)').empty();
             mm.fetchCampaigns();
           },
           error: function(res) {
@@ -364,15 +371,7 @@
     .glyphicon {
       font-size: 1.5em;
     }
-    /*
-    * chart-css
-    */
-    div.line-chart{
-      width: 100%;
-      height: 210px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
+
     .t1-mini {
       width: 2.5em;
       height: 2.5em;
@@ -381,11 +380,7 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .startstop {
-      margin-top: 19px;
-      margin-left: 24px;
 
-    }
 
   </style>
   <link rel="stylesheet" href="jqmob.css">
@@ -422,50 +417,41 @@
   <a class="hidden" data-transition="slideup"  href="#activity">Sign In</a>
 
   <!--Activity Page-->
-<div data-role="page" data-theme="a" id="activity">
-<div class="container">
-<div class="row">
-<div data-role="header" data-theme="f">
-<div class="ui-nodisc-icon ui-alt-icon">
-<img class="t1-mini" src="t1-mini-logo.png">
-</div>
-</div>
-</div>
-<div class="row">
-<form class="col-xs-12">
-  <input data-type="search" id="searchForCollapsibleSet" data-filter-placeholder="Search advertiser">
-</form>
-</div>
-<div class="row">
-
-
-<div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="campaignsList" data-input="#searchForCollapsibleSet">
-<div class="mm-template mm-campaign-item hidden mm-collapsible" data-filtertext="Advertiser 1">
-  <h5>
-    <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
-    <div class="col-xs-2 mm-totalHourlySpent">--</div>
-    <div class="col-xs-2 mm-totalDailySpent">--</div>
-    </h5>
-    <div data-role="listview" data-inset="false">
+  <div data-role="page" data-theme="a" id="activity">
+    <div class="container">
       <div class="row">
-        <div class="col-xs-12 startstop">
-          <a class="startStopCampaign" href="#">Deactivate</a>
+        <div data-role="header" data-theme="f">
+          <div class="ui-nodisc-icon ui-alt-icon">
+            <img class="t1-mini" src="t1-mini-logo.png">
+          </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12">
-          <p><div class="line-chart"></div></p>
+        <form class="col-xs-12">
+          <input data-type="search" id="searchForCollapsibleSet" data-filter-placeholder="Search advertiser">
+        </form>
+      </div>
+      <div class="row mm-template hidden" >
+          <div class="mm-campaign-item panel panel-default"  data-filtertext="Advertiser 1">
+            <h5 class="panel-body">
+              <div class="col-xs-5 mm-campaignName">Lorem ipsum</div>
+              <div class="col-xs-2 mm-totalHourlySpent">--</div>
+              <div class="col-xs-2 mm-totalDailySpent">--</div>
+              <div class="col-xs-1 startstop">
+                <a class="startStopCampaign" href="#">Deactivate</a>
+              </div>
+            </h5>
         </div>
       </div>
+      <div class="mm-grid" data-filter="true" data-inset="true" data-input="#searchForCollapsibleSet">
 
-    </div>
+
+      </div>
+    <div class="row"><div data-role="footer" data-theme="f"></div></div>
   </div>
 </div>
 
-<div data-role="footer" data-theme="f">
-</div>
-</div>
-</div>
+
 </div>
 </div>
 
