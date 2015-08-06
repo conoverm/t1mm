@@ -92,18 +92,11 @@
       shadow: false
     }
   };
+
   $.support.cors = true;
 
-  $( window ).on( "navigate", function( event, data ) {
-    console.log( event );
-    console.log( data );
-    console.log( data.state.info );
-    console.log( data.state.direction )
-    console.log( data.state.url )
-    console.log( data.state.hash )
-  });
-
   (function(mm, $){
+
     mm.fetchCampaigns = function(){
 
        $.ajax({
@@ -119,7 +112,7 @@
           mm.serialize();
           jQuery(".ui-collapsible-heading").click(function (){
             var classVal = jQuery(this).attr('class');
-            console.log(classVal);
+            // console.log(classVal);
             if($(this).parent().find('div.line-chart').html() == ""){
               var chartData = generateRandomData(dataConfig);
               $('div.line-chart').jqplot(chartData, config);
@@ -196,9 +189,8 @@
           $newItem.addClass('inactive');
           $newItem.find('.startStopCampaign').text('Activate')
         }
+
       });
-
-
     }
 
     mm.fetchCampaigns();
@@ -249,9 +241,11 @@
 
   })
 
-  $(function pauseCampaign(){
+  $(function (){
 
-    $(document).on('click', '.startStopCampaign', function(e) {
+    mm.pauseCampaign = function(el){
+
+    $(document).on('click', el, function(e) {
       e.preventDefault();
 
       $listItem = $(this).closest('.mm-campaign-item');
@@ -287,6 +281,7 @@
       });
 
     });
+  }
   });
   </script>
 
@@ -294,6 +289,10 @@
     /*Specifies the color for a bar - headers,
     footers and other bars*/
     /* Theme-e*/
+
+    *{
+      outline:0;
+    }
 
     .ui-collapsible-heading{
       font-size:10px !important;
@@ -422,18 +421,17 @@
 </form>
 </div>
 <div class="row">
-
-<div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-<div class="mm-template mm-campaign-item hidden mm-collapsible" data-filtertext="Advertiser 1">
-  <h5>
-    <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
-    <div class="col-xs-2 mm-totalHourlySpent">--</div>
-    <div class="col-xs-2 mm-totalDailySpent">--</div>
-    <div class="col-xs-2 col-xs-offset-1">play/pause</div>
+<div class="campaignRow">
+  <div data-role="collapsibleset" data-iconpos="none" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+  <div class="mm-template hidden mm-campaign-item mm-collapsible" data-filtertext="Advertiser 1">
+    <h5>
+      <div class="col-xs-4 mm-campaignName">Lorem ipsum</div>
+      <div class="col-xs-2 mm-totalHourlySpent">--</div>
+      <div class="col-xs-2 mm-totalDailySpent">--</div>
     </h5>
-    <div data-role="listview" data-inset="false">
-      <div><p><div class="line-chart"></div></p></div>
-      <div><a class="startStopCampaign" href="#">Deactivate</a></div>
+      <div data-role="listview" data-inset="false">
+        <div><p><div class="line-chart"></div></p></div>
+      </div>
     </div>
   </div>
 </div>
