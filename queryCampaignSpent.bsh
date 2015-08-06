@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# bash ./queryCampaignSpent.bsh campaign 115888 hourly
+
+type=$1
+campaignID=$2
+hourly=$3
+
+#echo $type, $campaignID, $hourly
+
+#if [ "$type"=='campaign' ]
+#    then
+#else
+#fi
+if [ "$type"=="campaign" ]
+    then
+    #echo "campaign--"
+    if [ "$hourly"=="hourly" ]
+    then
+        #echo "hourly"
+        date=`date -u +"%Y-%m-%d %H:00:00"`
+        #echo date $date
+        curl -s "http://counter-master.mediamath.com:8081/csdbquery?lookback=3&type=campaign&byday=0&dayhouroffset=&id=$campaignID&no_menu=1" | grep "$date" | grep -o "\$[0-9.]*" | sed -n 2p | sed 's/\$//'
+    fi
+fi
