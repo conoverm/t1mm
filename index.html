@@ -173,18 +173,24 @@
 
         $.get("http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id="+campaignId+"&type=hourly")
         .done(function(response){
-          hourly = response || 'n/a';
+          hourly = '$'+response;
+        })
+        .fail(function(resposne){
+            hourly = 'n/a';
         })
         .always(function(){
-          $('[data-mm-campaignId='+campaignId+']').find('.mm-totalHourlySpent').html('$'+hourly);
+          $('[data-mm-campaignId='+campaignId+']').find('.mm-totalHourlySpent').html(hourly);
         })
 
         $.get("http://ewr-bidqa-n2.mediamath.com:7000/path?query=campaign&id="+campaignId+"&type=daily")
         .done(function(response){
-          daily = response || 'n/a';
+          daily = '$'+response;
+        })
+        .fail(function(resposne){
+            daily = 'n/a';
         })
         .always(function(){
-           $('[data-mm-campaignId='+campaignId+']').find('.mm-totalDailySpent').html('$'+daily);
+           $('[data-mm-campaignId='+campaignId+']').find('.mm-totalDailySpent').html(daily);
            // $('.mm-totalDailySpent').html('$'+daily);
         })
 
@@ -197,7 +203,7 @@
       });
     }
 
-    // mm.fetchCampaigns();
+    mm.fetchCampaigns();
 
   })(window.mm = window.mm || {}, window.jQuery);
 
