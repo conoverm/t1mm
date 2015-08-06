@@ -7,13 +7,91 @@
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <script type="text/javascript" src="node_modules/jquery.cookie/jquery.cookie.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.cursor.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.canvasTextRenderer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.css' rel='stylesheet' type='text/css'>
+
   <script type="text/javascript">
   window.mm = {};
+  var generateRandomData = function(dataConfig){
+    var result = [];
+    for(var i=0; i<dataConfig.noOfLines; i++){
+      var line = [];
+      for(var j=0; j<dataConfig.noOfDataPoints; j++){
+        line.push([j+1, Math.round(Math.random() * dataConfig.maxValue) + dataConfig.minValue])
+      }
+      result.push(line);
+    }
+    return result;
+  };
+
+  var range = {
+    MIN_VAL: 10,
+    MAX_VAL: 100
+  }
+  var dataConfig = {
+    noOfLines: 2,
+    minValue: range.MIN_VAL,
+    maxValue: range.MAX_VAL,
+    noOfDataPoints: 6
+  }
+  var config = {
+    axesDefaults: {
+       showTickMarks:false,
+       showTicks: false
+    },
+    axes: {
+      xaxis: {
+        tickOptions:{
+          showGridline: true
+        }
+      },
+      yaxis:{
+        tickOptions:{
+          showGridline: true
+       },
+        min:range.MIN_VAL,
+        max:range.MAX_VAL,
+      },
+    },
+    seriesColors: [ "rgb(0, 168, 204)", "rgb(234, 102, 30)"],
+    series: [
+      {
+        showMarker:true,
+        pointLabels: {
+          show:false
+        },
+        yaxis:'yaxis'
+      },
+      {
+        linePattern: 'dashed',
+        showMarker:true,
+        pointLabels: {
+          show:false
+        },
+      }
+    ],
+    cursor: {
+      style: 'crosshair',
+      show: true,
+      showTooltip: true,
+      followMouse: false,
+      tooltipFormatString: '%.4P'
+    },
+    grid: {
+      background: '#fff',
+      borderWidth: 0,
+      shadow: false
+    }
+  };
   $.support.cors = true;
 
   $( window ).on( "navigate", function( event, data ) {
@@ -39,6 +117,16 @@
           console.info('fetch campaign response', response)
           mm.org100426 = response;
           mm.serialize();
+          jQuery(".ui-collapsible-heading").click(function (){
+            var classVal = jQuery(this).attr('class');
+            console.log(classVal);
+            if($(this).parent().find('div.line-chart').html() == ""){
+              var chartData = generateRandomData(dataConfig);
+              $('div.line-chart').jqplot(chartData, config);
+            }else{
+              $('div.line-chart').empty();
+            }
+          });
         },
         error: function(response){
           console.info('fetch campaign error', response)
@@ -265,6 +353,15 @@
       opacity: 0.4;
     }
 
+    /*
+    * chart-css
+    */
+    div.line-chart{
+      width: 100%;
+      height: 210px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
     .t1-mini {
       width: 2.5em;
       height: 2.5em;
@@ -335,7 +432,7 @@
     <div class="col-xs-2 mm-totalDailySpent">0.00</div>
     </h5>
     <div data-role="listview" data-inset="false">
-      <div><p><img src="https://placekitten.com/g/450/300" alt=""></p></div>
+      <div><p><div class="line-chart"></div></p></div>
       <div><a class="startStopCampaign" href="#">Deactivate</a></div>
     </div>
   </div>
