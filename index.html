@@ -105,7 +105,7 @@
        $.ajax({
         method: 'GET',
 
-        url: apiBase + '/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
+        url: apiBase + '/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=8',
         // url: 'org100426.xml',
         // org with campaign with budget flights
         // url: 'http://compass.dev/api/v2.0/campaigns/limit/advertiser.agency.organization=100426?with=budget_flights&full=*&page_limit=10',
@@ -149,6 +149,7 @@
 // mm-campaignId
 // mm-campaignName
 // mm-totalBudget
+      $('.mm-grid').empty();
 
       $.each($campaigns, function(index, value){
         var $val = $(value);
@@ -158,6 +159,8 @@
         var version = $val.attr('version');
         var status = $val.find('prop[name=status]').attr('value');
         var hourly; var daily;
+
+
 
         $newItem = $template.clone().removeClass('mm-template hidden')
         .data('campaign-id', campaignId)
@@ -291,7 +294,7 @@
             $campaignsList = $('#campaignsList')
             $campaignsList.html('');
             $campaignsList.append($template);
-            $('.mm-grid:not(.mm-template)').empty();
+
             mm.fetchCampaigns();
           },
           error: function(res) {
